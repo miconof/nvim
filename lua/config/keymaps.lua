@@ -19,3 +19,6 @@ vim.keymap.set("n", "<M-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window He
 vim.keymap.set("n", "<M-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+
+-- save file
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>wall<cr><esc>", { desc = "Save all Files" })
