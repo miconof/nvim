@@ -22,3 +22,11 @@ vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 
 -- save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>wall<cr><esc>", { desc = "Save all Files" })
+
+-- add keymap to browse buffers
+vim.keymap.set(
+  { "i", "n", "x", "s" },
+  "<c-b>",
+  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+  { desc = "Browse buffers" }
+)
