@@ -22,6 +22,12 @@ vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 
 -- save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>wall<cr><esc>", { desc = "Save all Files" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<F2>", "<cmd>wall<cr><esc>", { desc = "Save all Files" })
+
+-- buffers
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
+vim.keymap.del("n", "<leader>`")
 
 -- add keymap to browse buffers
 vim.keymap.set(
