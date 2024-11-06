@@ -7,9 +7,19 @@ return {
   config = function()
     require("telescope").setup({
       -- the rest of your telescope config goes here
+      defaults = {
+        -- path_display = { "smart" },
+        scroll_strategy = "limit",
+        sorting_strategy = "ascending",
+        layout_config = {
+          prompt_position = "top",
+        },
+      },
       extensions = {
         undo = {
-          -- telescope-undo.nvim config, see below
+          layout_config = {
+            preview_width = 0.5,
+          },
         },
         -- other extensions:
         -- file_browser = { ... }
@@ -19,19 +29,14 @@ return {
           previewer = false,
           theme = "dropdown",
           initial_mode = "normal",
+          sort_mru = true,
+          sort_lastused = true,
         },
         find_files = {
           -- theme = 'ivy', -- 'ivy', 'dropdown', 'cursor'
-          -- layout_strategy = 'vertical',
-          -- layout_config = { height = 0.9 },
-          -- previewer = false,
-          path_display = { "smart" },
           layout_config = {
-            prompt_position = "top",
             preview_width = 0.5,
-            -- width = 0.7,
           },
-          sorting_strategy = "ascending",
         },
         help_tags = {
           theme = "ivy",
@@ -40,34 +45,30 @@ return {
           theme = "dropdown",
         },
         registers = {
-          theme = "ivy",
+          previewer = false,
+          theme = "dropdown",
+          initial_mode = "normal",
+          sort_mru = true,
+          sort_lastused = true,
+          layout_config = {
+            width = 0.8,
+            height = 0.6,
+          },
         },
         grep_string = {
-          path_display = { "smart" },
           layout_config = {
-            prompt_position = "top",
             preview_width = 0.5,
-            -- width = 0.7,
           },
-          sorting_strategy = "ascending",
         },
         search_word = {
-          path_display = { "smart" },
           layout_config = {
-            prompt_position = "top",
             preview_width = 0.5,
-            -- width = 0.7,
           },
-          sorting_strategy = "ascending",
         },
         live_grep = {
-          path_display = { "smart" },
           layout_config = {
-            prompt_position = "top",
             preview_width = 0.5,
-            -- width = 0.7,
           },
-          sorting_strategy = "ascending",
         },
       },
     })
@@ -78,7 +79,11 @@ return {
     { "<leader>/", false },
     -- disable the keymap to change buffer
     { "<leader>,", false },
-    -- add a keymap to grep files
-    { "<c-f>", LazyVim.pick("live_grep") },
+    -- add a keymap to live grep files
+    { "<c-f>", mode = { "i", "n", "x", "s" }, LazyVim.pick("live_grep") },
+    -- add a keymap to search current string
+    { "<m-f>", mode = { "i", "n", "x", "s" }, LazyVim.pick("grep_string") },
+    { "<c-b>", mode = { "i", "n", "x", "s" }, LazyVim.pick("buffers") },
+    { "<c-u>", mode = { "i", "n", "x", "s" }, "<cmd>Telescope undo<cr>" },
   },
 }

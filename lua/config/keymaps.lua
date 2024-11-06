@@ -25,17 +25,7 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>wall<cr><esc>", { desc = "
 vim.keymap.set({ "i", "x", "n", "s" }, "<F2>", "<cmd>wall<cr><esc>", { desc = "Save all Files" })
 
 -- buffers
-vim.keymap.set("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
 vim.keymap.del("n", "<leader>`")
-
--- add keymap to browse buffers
-vim.keymap.set(
-  { "i", "n", "x", "s" },
-  "<c-b>",
-  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-  { desc = "Browse buffers" }
-)
 
 -- toogle comments
 vim.keymap.set("n", "<c-d>", "gcc", { remap = true, desc = "Toggle comment for line" })
