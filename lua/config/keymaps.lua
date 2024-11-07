@@ -31,6 +31,3 @@ vim.keymap.del("n", "<leader>`")
 vim.keymap.set("n", "<c-d>", "gcc", { remap = true, desc = "Toggle comment for line" })
 vim.keymap.set("v", "<c-d>", "gc", { remap = true, desc = "Toggle comment for selection" })
 vim.keymap.set("i", "<c-d>", "<esc>gcc", { remap = true, desc = "Toggle comment for line" })
-
--- Invoke Telescope undo
-vim.keymap.set("n", "<c-u>", "<cmd>Telescope undo<cr>")
