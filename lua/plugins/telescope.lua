@@ -13,6 +13,7 @@ return {
         sorting_strategy = "ascending",
         layout_config = {
           prompt_position = "top",
+          width = 0.95,
         },
       },
       extensions = {
